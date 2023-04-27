@@ -14,7 +14,25 @@ Content-type: application/json
     "content": "Ensure that everything still works.",               
     "important": true               
 }
+###
+
+POST http://localhost:3001/api/notes
+Content-type: application/json
+
+{
+    "content": "LOL",               
+    "important": true               
+}
 
 ###
 
-DELETE  http://localhost:3001/api/notes/2
+DELETE http://localhost:3001/api/notes/643bfa4fa48cf1d8b5b89c1e
+
+###
+PUT http://localhost:3001/api/notes/6444e73ec844a1c5c8ff55bc
+Content-type: application/json
+
+{
+    "content": "I Love Javascript.",               
+    "important": true               
+}

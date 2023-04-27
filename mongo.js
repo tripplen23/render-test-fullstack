@@ -1,8 +1,8 @@
 const mongoose = require('mongoose')
 
 if (process.argv.length < 3) {
-    console.log("Give password as argument")
-    process.exit(1)
+  console.log('Give password as argument')
+  process.exit(1)
 }
 
 // Passing the password from credentials we created in MongoDB Atlas, as a command line parameter.
@@ -16,19 +16,19 @@ mongoose.connect(url)
 
 // Schema
 const noteSchema = new mongoose.Schema({
-    content: String,
-    important: Boolean
+  content: String,
+  important: Boolean,
 })
 
 // Model
-const Note = mongoose.model('Note', noteSchema) 
+const Note = mongoose.model('Note', noteSchema)
 
 // Retrieving from database
-Note.find({ important: true }).then(result => {
-    result.forEach(note => {
-        console.log(note)
-    })
-    mongoose.connection.close()
+Note.find({ important: true }).then((result) => {
+  result.forEach((note) => {
+    console.log(note)
+  })
+  mongoose.connection.close()
 })
 
 /*
