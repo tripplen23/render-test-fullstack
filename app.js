@@ -2,10 +2,12 @@ const config = require('./utils/config')
 const express = require('express')
 const app = express()
 const cors = require('cors')
-const notesRouter = require('./controllers/notes')
-const middleware = require('./utils/middleware')
 const logger = require('./utils/logger')
 const mongoose = require('mongoose')
+require('express-async-errors')
+
+const notesRouter = require('./controllers/notes')
+const middleware = require('./utils/middleware')
 
 mongoose.set('strictQuery', false)
 
@@ -21,8 +23,8 @@ mongoose
   })
 
 app.use(cors())
-app.use(express.json()) // json-parser
 app.use(express.static('dist')) // Show the static content
+app.use(express.json()) // json-parser
 app.use(middleware.requestLogger)
 
 app.use('/api/notes', notesRouter)
