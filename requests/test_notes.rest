@@ -10,7 +10,8 @@ Content-type: application/json
 
 {
     "content": "Ensure that everything still works.",               
-    "important": true               
+    "important": true,
+    "userId": "644cc829e4a3777069425716"               
 }
 ###
 
